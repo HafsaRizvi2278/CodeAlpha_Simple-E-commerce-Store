@@ -1,0 +1,10 @@
+import { api } from "../api";
+import { useState } from "react";
+import type { Order, OrderStatus, Page } from "../types";
+import AdminNav from "../components/AdminNav";
+import StatusBadge from "../components/StatusBadge";
+export default function AdminOrders({ initialOrders, go, open, refresh }: { initialOrders: Order[]; refresh:()=>Promise<void>; go: (page: Page) => void; open: (order: Order) => void }) {
+  const orders=initialOrders; const [error,setError]=useState("");
+  const update=async(id:string,status:OrderStatus)=>{setError("");try{await api(`/admin/orders/${id}`,"PATCH",{status});await refresh();}catch(e){setError((e as Error).message);}};
+  return <main className="min-h-screen bg-stone-50"><div className="mx-auto max-w-7xl px-5 py-12 lg:px-8"><AdminNav page="admin-orders" go={go}/>{error&&<p role="alert" className="my-4 text-red-600">{error}</p>}<h2 className="mb-5 text-2xl font-semibold">Order management</h2><div className="overflow-x-auto rounded-2xl border border-stone-200 bg-white"><table className="w-full min-w-[820px] text-left text-sm"><thead className="bg-stone-100 text-xs uppercase tracking-wider text-stone-500"><tr><th className="p-4">Order ID</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th><th>View</th></tr></thead><tbody>{orders.map(o=><tr key={o.id} className="border-t border-stone-100"><td className="p-4 font-semibold">#{o.id}</td><td>{o.customerName}</td><td>{o.date}</td><td>${o.total.toFixed(2)}</td><td><select value={o.status} onChange={e=>update(o.id,e.target.value as OrderStatus)} className="rounded-full border border-stone-200 bg-white px-3 py-2 text-xs font-semibold"><option>Processing</option><option>Confirmed</option><option>Shipped</option><option>Delivered</option><option>Cancelled</option></select></td><td><button onClick={()=>open(o)} className="font-semibold text-teal-700">View order</button></td></tr>)}</tbody></table></div><div className="mt-5 flex flex-wrap gap-2">{(["Processing","Confirmed","Shipped","Delivered","Cancelled"] as OrderStatus[]).map(s=><StatusBadge key={s} status={s}/>)}</div></div></main>;
+}

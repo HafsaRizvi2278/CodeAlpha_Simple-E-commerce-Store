@@ -1,0 +1,20 @@
+import { useState } from "react";
+import type { CartLine, Page, Product } from "../types";
+import Button from "../components/Button";
+import { LoadingSpinner } from "../components/Feedback";
+import Icon from "../components/Icon";
+import QuantitySelector from "../components/QuantitySelector";
+
+export default function Cart({ lines, products, update, remove, clear, go }: { lines: CartLine[]; products: Product[]; update: (id: string, quantity: number) => void; remove: (id: string) => void; clear: () => void; go: (page: Page) => void }) {
+  const [loading, setLoading] = useState(false);
+  const subtotal = lines.reduce((sum,l) => sum + (products.find(p => p.id === l.productId)?.price || 0) * l.quantity, 0);
+  const count = lines.reduce((sum,l) => sum + l.quantity, 0);
+  const shipping = subtotal >= 75 ? 0 : 5;
+  const tax = subtotal * .08;
+  const checkout = () => { setLoading(true); setTimeout(() => go("checkout"), 500); };
+  if (!lines.length) return <main className="mx-auto max-w-2xl px-5 py-28 text-center"><span className="mx-auto grid size-20 place-items-center rounded-full bg-stone-100 text-stone-400"><Icon name="bag" size={32} /></span><h1 className="mt-6 text-3xl font-semibold">Your cart is empty</h1><p className="mt-3 text-stone-500">Looks like you haven't added anything yet.</p><Button onClick={() => go("shop")} className="mt-7">Start shopping <Icon name="arrow" /></Button></main>;
+  return <main className="mx-auto max-w-7xl px-5 py-12 lg:px-8"><div className="mb-10 flex items-end justify-between"><div><p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">Your selection</p><h1 className="mt-2 text-4xl font-semibold tracking-tight">Shopping cart</h1></div><button onClick={clear} className="text-sm font-semibold text-red-600">Clear cart</button></div>
+    <div className="grid gap-10 lg:grid-cols-[1fr_380px]"><div className={loading ? "opacity-60" : ""}>{lines.map(line => { const p = products.find(item => item.id === line.productId)!; return <article key={line.productId} className="grid grid-cols-[96px_1fr] gap-4 border-b border-stone-200 py-6 md:grid-cols-[1fr_100px_130px_100px] md:items-center"><div className="flex gap-4"><img src={p.images[0]} alt={p.name} className="size-24 rounded-2xl object-cover" /><div><p className="text-xs uppercase tracking-wider text-stone-400">{p.category}</p><h2 className="mt-1 font-semibold">{p.name}</h2><p className="mt-2 text-sm text-stone-500">{line.option || p.color}</p><button onClick={() => remove(p.id)} className="mt-3 text-xs font-medium text-red-600 underline">Remove</button></div></div><span className="hidden font-medium md:block">${p.price.toFixed(2)}</span><div className="col-start-2 md:col-auto"><QuantitySelector value={line.quantity} max={p.stock} onChange={q => update(p.id,q)} /></div><span className="hidden text-right font-semibold md:block">${(p.price*line.quantity).toFixed(2)}</span></article>; })}<Button variant="ghost" onClick={() => go("shop")} className="mt-5 !px-0">← Continue shopping</Button></div>
+      <aside className="h-fit rounded-3xl bg-stone-100 p-7"><h2 className="text-xl font-semibold">Order summary</h2><div className="mt-6 space-y-4 border-b border-stone-300 pb-5 text-sm"><div className="flex justify-between"><span className="text-stone-500">Items</span><span>{count}</span></div><div className="flex justify-between"><span className="text-stone-500">Subtotal</span><span>${subtotal.toFixed(2)}</span></div><div className="flex justify-between"><span className="text-stone-500">Shipping</span><span>{shipping ? `$${shipping.toFixed(2)}` : "Free"}</span></div><div className="flex justify-between"><span className="text-stone-500">Tax</span><span>${tax.toFixed(2)}</span></div></div><div className="flex justify-between py-5 text-lg font-bold"><span>Total</span><span>${(subtotal+shipping+tax).toFixed(2)}</span></div><Button disabled={loading} onClick={checkout} className="w-full">{loading ? <LoadingSpinner label="Loading cart" /> : <>Proceed to checkout <Icon name="arrow" /></>}</Button></aside></div>
+  </main>;
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "id": "prd_terra_bag",
+    "name": "Terra Shoulder Bag",
+    "category": "Accessories",
+    "price": 89,
+    "previousPrice": 110,
+    "stock": 18,
+    "rating": 4.9,
+    "color": "Sand",
+    "featured": true,
+    "createdAt": "2026-04-18",
+    "images": [
+      "https://images.unsplash.com/photo-1786872814428-1f0d8d685217?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1602956280248-66d6efd0ba7d?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1788500304966-2c60274a5de7?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "description": "A softly structured everyday bag crafted in premium vegan leather. Its spacious interior, secure magnetic closure, and adjustable strap make it effortlessly versatile."
+  },
+  {
+    "id": "prd_cloud_runner",
+    "name": "Cloud Runner Sneakers",
+    "category": "Footwear",
+    "price": 128,
+    "previousPrice": 150,
+    "stock": 9,
+    "rating": 4.8,
+    "color": "White",
+    "featured": true,
+    "createdAt": "2026-05-10",
+    "images": [
+      "https://images.unsplash.com/photo-1617152623457-4c9b639926d7?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1617152623457-4c9b639926d7?auto=format&fit=crop&w=900&q=85"
+    ],
+    "description": "Lightweight everyday sneakers with a cushioned sole, breathable lining, and clean profile designed for all-day comfort."
+  },
+  {
+    "id": "prd_heritage_watch",
+    "name": "Heritage Steel Watch",
+    "category": "Accessories",
+    "price": 164,
+    "previousPrice": 190,
+    "stock": 4,
+    "rating": 4.7,
+    "color": "Silver",
+    "featured": true,
+    "createdAt": "2026-03-22",
+    "images": [
+      "https://images.unsplash.com/photo-1582150264904-e0bea5ef0ad1?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1582150264904-e0bea5ef0ad1?auto=format&fit=crop&w=900&q=85"
+    ],
+    "description": "A refined stainless-steel timepiece with a precise quartz movement, mineral glass face, and timeless everyday proportions."
+  },
+  {
+    "id": "prd_arc_vase",
+    "name": "Arc Ceramic Vase",
+    "category": "Home & Living",
+    "price": 54,
+    "previousPrice": 68,
+    "stock": 0,
+    "rating": 4.9,
+    "color": "Terracotta",
+    "featured": true,
+    "createdAt": "2026-02-14",
+    "images": [
+      "https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1660721671073-e139688fa3cf?auto=format&fit=crop&w=900&q=85"
+    ],
+    "description": "Hand-finished ceramic forms bring warm, sculptural character to shelves, tables, and quiet corners of your home."
+  },
+  {
+    "id": "prd_linen_shirt",
+    "name": "Everyday Linen Shirt",
+    "category": "Clothing",
+    "price": 72,
+    "previousPrice": 90,
+    "stock": 21,
+    "rating": 4.6,
+    "color": "Oat",
+    "featured": false,
+    "createdAt": "2026-05-16",
+    "images": [
+      "https://images.unsplash.com/photo-1602956280248-66d6efd0ba7d?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1788500304966-2c60274a5de7?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "description": "A relaxed linen-blend shirt with a breathable weave and easy drape, made for warm days and effortless layering."
+  },
+  {
+    "id": "prd_coffee_set",
+    "name": "Stoneware Coffee Set",
+    "category": "Home & Living",
+    "price": 48,
+    "previousPrice": 60,
+    "stock": 13,
+    "rating": 4.8,
+    "color": "Cream",
+    "featured": false,
+    "createdAt": "2026-04-02",
+    "images": [
+      "https://images.unsplash.com/photo-1605117012605-b68dedd4accc?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1660721671073-e139688fa3cf?auto=format&fit=crop&w=900&q=85"
+    ],
+    "description": "A tactile stoneware cup and saucer set with a soft matte glaze, balanced weight, and organic hand-finished edges."
+  },
+  {
+    "id": "prd_serving_set",
+    "name": "Sculpted Serving Set",
+    "category": "Home & Living",
+    "price": 76,
+    "previousPrice": 92,
+    "stock": 7,
+    "rating": 4.7,
+    "color": "Stone",
+    "featured": false,
+    "createdAt": "2026-03-08",
+    "images": [
+      "https://images.unsplash.com/photo-1660721671073-e139688fa3cf?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?auto=format&fit=crop&w=900&q=85"
+    ],
+    "description": "Stackable serving bowls shaped with gentle curves and a durable satin glaze for everyday meals and shared tables."
+  },
+  {
+    "id": "prd_hair_duo",
+    "name": "Botanical Hair Duo",
+    "category": "Beauty",
+    "price": 42,
+    "previousPrice": 52,
+    "stock": 0,
+    "rating": 4.8,
+    "featured": false,
+    "createdAt": "2026-05-19",
+    "images": [
+      "https://images.unsplash.com/photo-1761125802333-d145773f4461?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1761125802333-d145773f4461?auto=format&fit=crop&w=900&q=85"
+    ],
+    "description": "A gentle botanical shampoo and conditioner duo created to cleanse, soften, and restore shine without heavy residue."
+  }
+]

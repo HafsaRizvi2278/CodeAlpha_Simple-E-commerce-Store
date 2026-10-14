@@ -16,7 +16,6 @@ Extract the ZIP, open the `ShopNest` folder in VS Code, and open its terminal:
 
 ```powershell
 npm ci
-Copy-Item .env.example .env
 ```
 
 Open `.env` and replace `ADMIN_PASSWORD` with your own password of at least 12 characters. Leave `APP_ORIGIN=http://localhost:5173` for development.
